@@ -11,6 +11,9 @@ runs:
   using: "composite"
   steps:
     - shell: bash
+      run: chmod +x entrypoint.sh
+
+    - shell: bash
       env:
         CODVE_API_KEY: ${{ inputs.api-key }}
         CODVE_CONFIG: ${{ inputs.config }}
