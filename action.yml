@@ -1,0 +1,15 @@
+name: "Codve Verify (local)"
+description: "Runs Codve verification by calling Codve API"
+inputs:
+  api-key:
+    required: true
+  config:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      env:
+        CODVE_API_KEY: ${{ inputs.api-key }}
+        CODVE_CONFIG: ${{ inputs.config }}
+      run: bash .github/actions/codve-verify/entrypoint.sh
