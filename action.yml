@@ -1,9 +1,11 @@
-name: "Codve Verify (local)"
-description: "Runs Codve verification by calling Codve API"
+name: "Codve Verify"
+description: "Runs Codve verification by calling the Codve API"
 inputs:
   api-key:
+    description: "Codve API key"
     required: true
   config:
+    description: "Codve config (YAML/JSON) or path, depending on your script"
     required: true
 runs:
   using: "composite"
@@ -12,4 +14,7 @@ runs:
       env:
         CODVE_API_KEY: ${{ inputs.api-key }}
         CODVE_CONFIG: ${{ inputs.config }}
-      run: bash .github/actions/codve-verify/entrypoint.sh
+      run: bash entrypoint.sh
+branding:
+  icon: "shield"
+  color: "purple"
